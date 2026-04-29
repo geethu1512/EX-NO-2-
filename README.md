@@ -35,9 +35,52 @@ STEP-5: Display the obtained cipher text.
 
 
 Program:
+~~~
+# Simple Playfair Cipher
+
+def create_matrix(key):
+    key = "".join(dict.fromkeys(key.lower().replace("j","i")))
+    alpha = "abcdefghiklmnopqrstuvwxyz"
+    key += "".join([c for c in alpha if c not in key])
+    return [list(key[i:i+5]) for i in range(0,25,5)]
+
+def find(mat, ch):
+    for i in range(5):
+        for j in range(5):
+            if mat[i][j] == ch:
+                return i, j
+
+key = input("Enter key: ")
+text = input("Enter plain text: ")
+
+text = text.lower().replace("j","i").replace(" ","")
+if len(text) % 2 != 0:
+    text += "z"
+
+mat = create_matrix(key)
+cipher = ""
+
+for i in range(0, len(text), 2):
+    a, b = text[i], text[i+1]
+    r1,c1 = find(mat,a)
+    r2,c2 = find(mat,b)
+
+    if r1 == r2:
+        cipher += mat[r1][(c1+1)%5] + mat[r2][(c2+1)%5]
+    elif c1 == c2:
+        cipher += mat[(r1+1)%5][c1] + mat[(r2+1)%5][c2]
+    else:
+        cipher += mat[r1][c2] + mat[r2][c1]
+
+print("Cipher Text:", cipher)
+~~~
 
 
 
 
+## Output:
 
-Output:
+<img width="1693" height="917" alt="Screenshot 2026-04-29 115446" src="https://github.com/user-attachments/assets/f8793fbe-1283-4c3f-bd90-1b2f5d31b4d3" />
+
+## Result :
+Thus the implementation of ceasar cipher had been executed successfully.
