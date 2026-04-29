@@ -36,8 +36,6 @@ STEP-5: Display the obtained cipher text.
 
 Program:
 ~~~
-# Simple Playfair Cipher
-
 def create_matrix(key):
     key = "".join(dict.fromkeys(key.lower().replace("j","i")))
     alpha = "abcdefghiklmnopqrstuvwxyz"
