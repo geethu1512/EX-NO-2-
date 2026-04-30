@@ -81,4 +81,4 @@ print("Cipher Text:", cipher)
 <img width="1693" height="917" alt="Screenshot 2026-04-29 115446" src="https://github.com/user-attachments/assets/f8793fbe-1283-4c3f-bd90-1b2f5d31b4d3" />
 
 ## Result :
-Thus the implementation of ceasar cipher had been executed successfully.
+Thus the implementation of playfiar cipher had been executed successfully.
